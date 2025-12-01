@@ -53,8 +53,8 @@ MODEL_REGISTRY = {
 }
 
 # Configuration constants
-DEFAULT_DIT = "seedvr2_ema_3b_fp8_e4m3fn.safetensors"
-DEFAULT_VAE = "ema_vae_fp16.safetensors"
+DEFAULT_DIT = "/inference/models/comfyui/models/seedvr2_ema_7b_fp8_e4m3fn_mixed_block35_fp16.safetensors"
+DEFAULT_VAE = "/inference/models/comfyui/vae/ema_vae_fp16.safetensors"
 
 def get_default_models(category: str) -> List[str]:
     """Get list of default models"""

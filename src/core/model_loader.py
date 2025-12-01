@@ -473,14 +473,14 @@ def materialize_model(runner: VideoDiffusionInfer, model_type: str, device: torc
     # Get model and checkpoint path
     if is_dit:
         model = runner.dit
-        # checkpoint_path = runner._dit_checkpoint
-        checkpoint_path = "/inference/models/comfyui/models/seedvr2_ema_7b_fp8_e4m3fn_mixed_block35_fp16.safetensors"
+        checkpoint_path = runner._dit_checkpoint
+        # checkpoint_path = "/inference/models/comfyui/models/seedvr2_ema_7b_fp8_e4m3fn_mixed_block35_fp16.safetensors"
         block_swap_config = runner._dit_block_swap_config
         override_dtype = getattr(runner, '_dit_dtype_override', None)
     else:
         model = runner.vae
-        # checkpoint_path = runner._vae_checkpoint
-        checkpoint_path = "/inference/models/comfyui/vae/ema_vae_fp16.safetensors"
+        checkpoint_path = runner._vae_checkpoint
+        # checkpoint_path = "/inference/models/comfyui/vae/ema_vae_fp16.safetensors"
         block_swap_config = None
         override_dtype = getattr(runner, '_vae_dtype_override', None)
     
