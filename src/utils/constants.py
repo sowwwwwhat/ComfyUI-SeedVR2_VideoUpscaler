@@ -44,47 +44,47 @@ def get_base_cache_dir() -> str:
     Returns:
         str: Path to default cache directory
     """
-    try:
-        import folder_paths  # Only works if ComfyUI is available
-        # cache_dir = os.path.join(folder_paths.models_dir, SEEDVR2_FOLDER_NAME)
-        cache_dir = "/inference/models/comfyui"
-        folder_paths.add_model_folder_path(SEEDVR2_MODEL_TYPE, cache_dir)
-    except:
-        cache_dir = f"./models/{SEEDVR2_FOLDER_NAME}"
+    # try:
+    #     import folder_paths  # Only works if ComfyUI is available
+    #     cache_dir = os.path.join(folder_paths.models_dir, SEEDVR2_FOLDER_NAME)
+    #     cache_dir = "/inference/models/comfyui"
+    #     folder_paths.add_model_folder_path(SEEDVR2_MODEL_TYPE, cache_dir)
+    # except:
+    #     cache_dir = f"./models/{SEEDVR2_FOLDER_NAME}"
     
-    return cache_dir
+    return "/inference/models/comfyui"
 
 
 def get_all_model_paths() -> list:
     """Get all registered model paths including those from extra_model_paths.yaml (case-insensitive)"""
-    try:
-        import folder_paths
-        # Ensure default path is registered first
-        get_base_cache_dir()
+    # try:
+    #     import folder_paths
+    #     # Ensure default path is registered first
+    #     get_base_cache_dir()
         
-        # Case-insensitive lookup: search through all registered folder types
-        # This handles any case variation users might use in extra_model_paths.yaml
-        all_paths = []
-        target_lower = SEEDVR2_MODEL_TYPE.lower()
+    #     # Case-insensitive lookup: search through all registered folder types
+    #     # This handles any case variation users might use in extra_model_paths.yaml
+    #     all_paths = []
+    #     target_lower = SEEDVR2_MODEL_TYPE.lower()
         
-        # folder_paths.folder_names_and_paths is the underlying dict: {type: ([paths], extensions)}
-        if hasattr(folder_paths, 'folder_names_and_paths'):
-            for folder_type, (paths, _) in folder_paths.folder_names_and_paths.items():
-                if folder_type.lower() == target_lower:
-                    all_paths.extend(paths)
+    #     # folder_paths.folder_names_and_paths is the underlying dict: {type: ([paths], extensions)}
+    #     if hasattr(folder_paths, 'folder_names_and_paths'):
+    #         for folder_type, (paths, _) in folder_paths.folder_names_and_paths.items():
+    #             if folder_type.lower() == target_lower:
+    #                 all_paths.extend(paths)
         
-        # Remove duplicates while preserving order (os.path.normpath handles Windows/Linux path differences)
-        seen = set()
-        unique_paths = []
-        for path in all_paths:
-            normalized = os.path.normpath(path.lower())
-            if normalized not in seen:
-                seen.add(normalized)
-                unique_paths.append(path)
+    #     # Remove duplicates while preserving order (os.path.normpath handles Windows/Linux path differences)
+    #     seen = set()
+    #     unique_paths = []
+    #     for path in all_paths:
+    #         normalized = os.path.normpath(path.lower())
+    #         if normalized not in seen:
+    #             seen.add(normalized)
+    #             unique_paths.append(path)
         
-        return unique_paths if unique_paths else [get_base_cache_dir()]
-    except:
-        return [get_base_cache_dir()]
+    #     return unique_paths if unique_paths else [get_base_cache_dir()]
+    # except:
+    return [get_base_cache_dir()]
 
 
 def get_all_model_files() -> dict:
