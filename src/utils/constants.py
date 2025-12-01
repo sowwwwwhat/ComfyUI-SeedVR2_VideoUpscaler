@@ -46,7 +46,8 @@ def get_base_cache_dir() -> str:
     """
     try:
         import folder_paths  # Only works if ComfyUI is available
-        cache_dir = os.path.join(folder_paths.models_dir, SEEDVR2_FOLDER_NAME)
+        # cache_dir = os.path.join(folder_paths.models_dir, SEEDVR2_FOLDER_NAME)
+        cache_dir = "/inference/models/comfyui"
         folder_paths.add_model_folder_path(SEEDVR2_MODEL_TYPE, cache_dir)
     except:
         cache_dir = f"./models/{SEEDVR2_FOLDER_NAME}"
