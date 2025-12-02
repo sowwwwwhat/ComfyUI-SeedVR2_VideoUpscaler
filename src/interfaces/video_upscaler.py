@@ -389,12 +389,12 @@ class SeedVR2VideoUpscaler(io.ComfyNode):
 
         # Check if download succeeded
         debug.log("Checking and downloading models if needed...", category="download")
-        if not download_weight(dit_model=dit_model, vae_model=vae_model, debug=debug):
-            raise RuntimeError(
-                f"Failed to download required model files. "
-                f"DiT model: {dit_model}, VAE model: {vae_model}. "
-                "Please check the console output above for specific file failures and manual download instructions."
-            )
+        # if not download_weight(dit_model=dit_model, vae_model=vae_model, debug=debug):
+        #     raise RuntimeError(
+        #         f"Failed to download required model files. "
+        #         f"DiT model: {dit_model}, VAE model: {vae_model}. "
+        #         "Please check the console output above for specific file failures and manual download instructions."
+        #     )
         
         try:
             # Initialize ComfyUI progress bar if available
