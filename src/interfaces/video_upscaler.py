@@ -415,7 +415,7 @@ class SeedVR2VideoUpscaler(io.ComfyNode):
             runner, cache_context = prepare_runner(
                 dit_model=dit_model, 
                 vae_model=vae_model, 
-                model_dir=get_base_cache_dir(),
+                model_dir='/inference/models/comfyui/models',
                 debug=debug,
                 ctx=ctx,
                 dit_cache=dit_cache,

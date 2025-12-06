@@ -1296,10 +1296,9 @@ def main() -> None:
             debug.log(f"Using devices: {device_list}", category="device")
         
         # Download models once before processing
-        download_weight(dit_model=args.dit_model, vae_model=DEFAULT_VAE, model_dir=args.model_dir, debug=debug)
         # if not download_weight(dit_model=args.dit_model, vae_model=DEFAULT_VAE, model_dir=args.model_dir, debug=debug):
-            # debug.log("Failed to download required models. Check console output above.", level="ERROR", category="download", force=True)
-            # sys.exit(1)
+        #     debug.log("Failed to download required models. Check console output above.", level="ERROR", category="download", force=True)
+        #     sys.exit(1)
         
         # Determine input type and process accordingly
         input_type = get_input_type(args.input)
