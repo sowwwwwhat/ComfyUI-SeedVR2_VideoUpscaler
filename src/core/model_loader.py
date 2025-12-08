@@ -478,7 +478,7 @@ def materialize_model(runner: VideoDiffusionInfer, model_type: str, device: torc
         override_dtype = getattr(runner, '_dit_dtype_override', None)
     else:
         model = runner.vae
-        checkpoint_path = '/inference/models/comfyui/vae/ema_vae_fp16.safetensors'
+        checkpoint_path = '/inference/models/comfyui/models/ema_vae_fp16.safetensors'
         block_swap_config = None
         override_dtype = getattr(runner, '_vae_dtype_override', None)
     
